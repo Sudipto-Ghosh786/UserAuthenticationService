@@ -1,5 +1,7 @@
 package com.example.models;
 
+import javax.persistence.Entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +14,7 @@ import lombok.ToString;
 @ToString
 @Builder
 public class RegisterationRequest {
-	private Integer userId;
+	private int userId;
 	private String userName;
 	private String firstName;
 	private String lastName;

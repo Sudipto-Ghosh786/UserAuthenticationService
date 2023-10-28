@@ -1,6 +1,7 @@
 package com.example.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,11 +15,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Builder
-public class OwnerTable {
-	private Integer ownerId;
+public class Admin {
+	@Id
+	private Integer adminId;
 	private String userName;
 	private String firstName;
 	private String lastName;
 	private Long phoneNo;
 	private String nickName;
+	private String companyName;
+	private String gstIn;
 }
