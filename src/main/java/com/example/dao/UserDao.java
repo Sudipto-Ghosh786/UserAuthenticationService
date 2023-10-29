@@ -1,8 +1,10 @@
 package com.example.dao;
 
 import com.example.entities.User;
+import com.example.models.LoginRequest;
 
 public interface UserDao {
-	public abstract boolean addUser(final User user);
-	public abstract User getUser(final Integer userId);
+	boolean addUser(final User user);
+//	User getUser(final Integer userId);
+	boolean userLogin(final LoginRequest loginRequest);
 }

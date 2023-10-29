@@ -1,8 +1,6 @@
 package com.example.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import com.example.enums.UserType;
 
@@ -22,6 +20,7 @@ public class User {
 	@Id
 	@GeneratedValue
 	private Integer userId;
+	@Column(unique = true)
 	private String username;
 	private String firstName;
 	private String lastName;
@@ -30,5 +29,7 @@ public class User {
 	private String gender;
 	private String nickName;
 	private String companyName;
+	@Column(unique = true)
 	private String gstinNo;
+	private String password;
 }

@@ -1,8 +1,10 @@
 package com.example.service;
 
 import com.example.entities.User;
+import com.example.models.LoginRequest;
 
 public interface UserService {
-	public abstract void addUserToSystem(final User user);
-	public abstract User getUserFromSystem(final Integer userId);
+	boolean addUserToSystem(final User user);
+//	User getUserFromSystem(final Integer userId);
+	boolean userLogin(final LoginRequest loginRequest);
 }

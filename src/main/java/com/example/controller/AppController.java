@@ -23,10 +23,13 @@ public class AppController {
 	public LoginResponse login(@RequestBody LoginRequest loginRequest) {
 		System.out.println("--------");
 		System.out.println(loginRequest);
-		return LoginResponse.builder().userLoginResponse(true).build();
+		if(userService.userLogin(loginRequest)){
+			return LoginResponse.builder().userLoginResponse(true).build();
+		}
+		return LoginResponse.builder().userLoginResponse(false).build();
 	}
 
-	@PostMapping("/registeration")
+	@PostMapping("/registration")
 	public RegisterationResponse register(@RequestBody RegisterationRequest registerationRequest) {
 		userService.addUserToSystem(User.builder()
 				.userId(registerationRequest.getUserId())
@@ -38,6 +41,7 @@ public class AppController {
 				.userType(registerationRequest.getUserType())
 				.companyName(registerationRequest.getCompanyName())
 				.gstinNo(registerationRequest.getGstinNo())
+				.password(registerationRequest.getPassword())
 				.phoneNo(registerationRequest.getPhoneNo()).build());
 		return RegisterationResponse.builder().userRegisterationResponse(true).build();
 	}

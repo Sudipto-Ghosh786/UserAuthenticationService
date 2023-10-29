@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.models.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +14,18 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	
 	@Override
-	public void addUserToSystem(User user) {
-		userDao.addUser(user);
+	public boolean addUserToSystem(User user) {
+		return userDao.addUser(user);
 	}
 
 	@Override
-	public User getUserFromSystem(Integer userId) {
-		return userDao.getUser(userId);
+	public boolean userLogin(LoginRequest loginRequest) {
+		return userDao.userLogin(loginRequest);
 	}
+
+//	@Override
+//	public User getUserFromSystem(Integer userId) {
+//		return userDao.getUser(userId);
+//	}
 
 }

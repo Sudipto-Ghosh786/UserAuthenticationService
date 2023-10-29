@@ -25,4 +25,5 @@ public class RegisterationRequest {
 	private String nickName;
 	private String companyName;
 	private String gstinNo;
+	private String password;
 }
