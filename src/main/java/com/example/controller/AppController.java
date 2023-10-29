@@ -30,10 +30,14 @@ public class AppController {
 	public RegisterationResponse register(@RequestBody RegisterationRequest registerationRequest) {
 		userService.addUserToSystem(User.builder()
 				.userId(registerationRequest.getUserId())
-				.userName(registerationRequest.getUserName())
+				.username(registerationRequest.getUsername())
 				.firstName(registerationRequest.getFirstName())
 				.lastName(registerationRequest.getLastName())
 				.nickName(registerationRequest.getNickName())
+				.gender(registerationRequest.getGender())
+				.userType(registerationRequest.getUserType())
+				.companyName(registerationRequest.getCompanyName())
+				.gstinNo(registerationRequest.getGstinNo())
 				.phoneNo(registerationRequest.getPhoneNo()).build());
 		return RegisterationResponse.builder().userRegisterationResponse(true).build();
 	}
