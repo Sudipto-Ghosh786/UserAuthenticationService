@@ -31,7 +31,7 @@ public class AppController {
 
 	@PostMapping("/registration")
 	public RegisterationResponse register(@RequestBody RegisterationRequest registerationRequest) {
-		userService.addUserToSystem(User.builder()
+		if(userService.addUserToSystem(User.builder()
 				.userId(registerationRequest.getUserId())
 				.username(registerationRequest.getUsername())
 				.firstName(registerationRequest.getFirstName())
@@ -42,8 +42,13 @@ public class AppController {
 				.companyName(registerationRequest.getCompanyName())
 				.gstinNo(registerationRequest.getGstinNo())
 				.password(registerationRequest.getPassword())
-				.phoneNo(registerationRequest.getPhoneNo()).build());
-		return RegisterationResponse.builder().userRegisterationResponse(true).build();
+				.phoneNo(registerationRequest.getPhoneNo()).build())
+		) {
+
+			return RegisterationResponse.builder().userRegisterationResponse(true).build();
+		}
+
+		return RegisterationResponse.builder().userRegisterationResponse(false).build();
 	}
 
 	@PostMapping("/resetPassword")
