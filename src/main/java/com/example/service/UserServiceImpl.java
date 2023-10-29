@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.models.ForgetPasswordRequest;
 import com.example.models.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean userLogin(LoginRequest loginRequest) {
 		return userDao.userLogin(loginRequest);
+	}
+
+	@Override
+	public boolean forgetPassword(ForgetPasswordRequest forgetPasswordRequest) {
+		return userDao.forgetPassword(forgetPasswordRequest);
 	}
 
 //	@Override

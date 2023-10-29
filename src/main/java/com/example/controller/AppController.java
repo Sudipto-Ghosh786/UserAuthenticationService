@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,10 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entities.User;
-import com.example.models.LoginRequest;
-import com.example.models.LoginResponse;
-import com.example.models.RegisterationRequest;
-import com.example.models.RegisterationResponse;
 import com.example.service.UserService;
 
 @RestController
@@ -51,8 +48,11 @@ public class AppController {
 		return RegisterationResponse.builder().userRegisterationResponse(false).build();
 	}
 
-	@PostMapping("/resetPassword")
-	public String reset() {
-		return "Password Reset Successfully";
+	@PostMapping("/forgetPassword")
+	public String forgetPassword(@RequestBody ForgetPasswordRequest forgetPasswordRequest) {
+		if(userService.forgetPassword(forgetPasswordRequest)){
+			return "Password Reset Successfully";
+		}
+		return "Try Again";
 	}
 }
