@@ -12,6 +12,7 @@ import com.example.service.UserService;
 
 @RestController
 @RequestMapping("/authenticate")
+@SuppressWarnings("unused")
 public class AppController {
 	@Autowired
 	private UserService userService;
