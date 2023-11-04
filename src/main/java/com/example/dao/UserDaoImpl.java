@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserDao {
     }
 
 	@Override
-	public boolean forgetPassword(ForgetPasswordRequest forgetPasswordRequest) {
+	public boolean forgetPassword(final ForgetPasswordRequest forgetPasswordRequest) {
 		User user = userTableRepo.findByUsernameAndNickName(forgetPasswordRequest.getUsername(), forgetPasswordRequest.getNickName());
 		if(user == null || Objects.equals(user.getPassword(), forgetPasswordRequest.getNewPassword())){
 			return false;

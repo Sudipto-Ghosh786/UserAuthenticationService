@@ -15,17 +15,17 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	
 	@Override
-	public boolean addUserToSystem(User user) {
+	public boolean addUserToSystem(final User user) {
 		return userDao.addUser(user);
 	}
 
 	@Override
-	public boolean userLogin(LoginRequest loginRequest) {
+	public boolean userLogin(final LoginRequest loginRequest) {
 		return userDao.userLogin(loginRequest);
 	}
 
 	@Override
-	public boolean forgetPassword(ForgetPasswordRequest forgetPasswordRequest) {
+	public boolean forgetPassword(final ForgetPasswordRequest forgetPasswordRequest) {
 		return userDao.forgetPassword(forgetPasswordRequest);
 	}
 
