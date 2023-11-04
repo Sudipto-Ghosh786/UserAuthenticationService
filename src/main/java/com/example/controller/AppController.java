@@ -19,8 +19,6 @@ public class AppController {
 
 	@PostMapping("/login")
 	public LoginResponse login(@RequestBody LoginRequest loginRequest) {
-		System.out.println("--------");
-		System.out.println(loginRequest);
 		if(userService.userLogin(loginRequest)){
 			return LoginResponse.builder().userLoginResponse(true).build();
 		}
@@ -47,6 +45,11 @@ public class AppController {
 		}
 
 		return RegisterationResponse.builder().userRegisterationResponse(false).build();
+	}
+
+	@PostMapping("/logout")
+	public String logout() {
+		return "Logged out!";
 	}
 
 	@PostMapping("/forgetPassword")
